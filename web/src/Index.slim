@@ -1,0 +1,83 @@
+doctype html
+meta charset='utf-8'
+meta http-equiv='x-ua-compatible' content='ie=edge'
+/! smoosh
+link rel='stylesheet' href='styles/style.css'
+/! endsmoosh
+body.not-dragging
+    .c-node.c-root
+        menu.c-node.tool
+            svg.button.menu viewbox='0 0 120 120'
+                path d='M32 40H88M32 60H88M32 80H88' stroke='currentColor' stroke-width='8' /
+            svg.button.undo viewbox='0 0 120 120'
+                path d='M43 43A24 24 225 1 1 60 84' fill='none' stroke='currentColor' stroke-width='8' /
+                path d='M33 32L27 59L54 53Z' fill='currentColor' /
+        .c-node.column
+            .c-node
+                article.c-node.editor
+                    header
+                        h1 レイアウトエディタ
+                        .button.clear クリア
+                        .button.add 追加
+                    .container.fixed-ratio
+                        .side
+                        .node.root.leaf
+                        .side
+                .c-node.column
+                    .c-node
+                        article.c-node.multi
+                            header
+                                kbd
+                                h1 マルチモニター
+                            .container: .selected
+                        article.c-node.move
+                            header
+                                kbd
+                                h1 簡易移動
+                            .container.fixed-ratio
+                                .side
+                                .node.root.column
+                                    .node
+                                        .node.leaf data-bounds='{ "x": "0.0", "y": "0.0" }'
+                                        .border.upper
+                                        .node.leaf data-bounds='{ "x": "0.5", "y": "0.0" }'
+                                        .border.upper
+                                        .node.leaf data-bounds='{ "x": "1.0", "y": "0.0" }'
+                                    .border.horizontal
+                                    .node
+                                        .node.leaf data-bounds='{ "x": "0.0", "y": "0.5" }'
+                                        .border
+                                        .node.leaf data-bounds='{ "x": "0.5", "y": "0.5" }'
+                                        .border
+                                        .node.leaf data-bounds='{ "x": "1.0", "y": "0.5" }'
+                                    .border.horizontal
+                                    .node
+                                        .node.leaf data-bounds='{ "x": "0.0", "y": "1.0" }'
+                                        .border.lower
+                                        .node.leaf data-bounds='{ "x": "0.5", "y": "1.0" }'
+                                        .border.lower
+                                        .node.leaf data-bounds='{ "x": "1.0", "y": "1.0" }'
+                                .side
+                    article.c-node.task
+                        header
+                            kbd
+                            h2
+                            .button.filter
+                        .container.scroll: .float
+                article.c-node.number
+                    header
+                        kbd
+                        h1 数値指定
+                        .button.add 追加
+                    input
+                    .container.scroll
+            article.c-node.template
+                header: h1 レイアウトテンプレート
+                .container.scroll: .float
+    .hidden hidden=''
+    /! smoosh
+    script src='scripts/jquery-2.1.1.min.js'
+    script src='scripts/jquery-ui.min.js'
+    script src='scripts/jquery.mousewheel.min.js'
+    script src='scripts/script.js'
+    /! endsmoosh

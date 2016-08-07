@@ -1,0 +1,101 @@
+doctype html
+meta charset='utf-8'
+meta http-equiv='x-ua-compatible' content='ie=edge'
+/! smoosh
+link rel='stylesheet' href='styles/option.css'
+/! endsmoosh
+form
+    section
+        h2 全般
+        p: label <input id='IsPreview' type='checkbox' checked>ウィンドウを移動・サイズ変更するときの予測を表示
+        p: label <input id='WheelableEditorBorder' type='checkbox'>レイアウトエディタを 1px 単位でサイズ変更する
+        p: label
+            <select id='ShortcutKey'>
+                option value='0' 無効
+                option value='160' 左 Shift
+                option value='161' 右 Shift
+                option value='162' 左 Ctrl
+                option value='163' 右 Ctrl
+                option value='164' selected='' 左 Alt
+                option value='165' 右 Alt
+            </select>素早くウィンドウを移動・サイズ変更するショートカット
+        p: label
+            <select id='VTaskTitle'>
+                option value='0' 非表示
+                option value='1' selected='' 重複するアイコンに表示
+                option value='2' すべてのアイコンに表示
+            </select>アプリアイコンに表示するタイトル
+        h2 表示
+        p: label <input id='VTool' type='checkbox' checked>ツールバー（ Alt キーを押すとメニューが表示されます）
+        p: label <input id='VEditor' type='checkbox' checked>レイアウトエディタ
+        p: label <input id='VTemplate' type='checkbox' checked>レイアウトテンプレート
+        p: label <input id='VMove' type='checkbox' checked>簡易移動
+        p: label <input id='VNumber' type='checkbox' checked>数値指定
+        p: label <input id='VMulti' type='checkbox' checked>マルチモニター
+        h2 外観
+        h3 サイズの比
+        img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXYAAADQCAMAAAAksroQAAAABGdBTUEAALGPC/xhBQAAAFFQTFRFrPLPADZhYTYAYYiINgBhNgA2NgAANojPAAA28s+Iz/LyADaIrGEAYQAA8vKsiM/yAGGsYazy8qxhz4g28vLPiDYAAABhrPLyAAAA8vLys8zm6TjM5wAAA0BJREFUeNrt3dtyokAUBVDnEo0zeEE0g/n/Dx1FKxVwphQJh1bWfshLhGOtNE03lW4mexkgEwTYsQt27IIdu2DHLtixY5dRsM9//omrNS3L8vevu49fLg7Hv65a1lwnyL7dvcWxF7PDj+z+gtXxRSv37a5Mj/3wpcpA9nOTzTt+51mLT2ffvqfY2vebR2NvdXzxNtlhrzrbl1Wn47MWN4dDrS321mz/uinnbS6M2R776bJ/XXX8s918gkoce1WuzDtfLutb/8LH6wr7UaK7+u29VFGek4+cvXMPs7+p+bb8+LOzZ91qbXd5+5OkyH6cLl2/CL+42v0TtKrXaDkQSrS1C3bs2G9JWQ7xhU9V+6p9/exd65+OxI4dO3bs2LFjHyn7MOm39vWzd62P/THZdTL6duzYsWPHjh07dgkJ9tTYL2dX7x85/v59oPRb+/rZu9bHniL75Z0TO3bs2LFjx44dO3bs2LFjx44dex/s1T4g9cU62CPYc60dO3bsPfft9XXL2INGMvX14tijBpC1DSWwR7EXBpDYx8Je3wgOe//s2eU+Htj7Z99c7uOB3aMw7NixY8eOHTt27NixY8eOHTt2S8awY3+yTuZT0mEfOtixY8f+qOzjvKX2Xx97iuzjnC5hx44dO3bs2LFjx44dO3bs2LEPwb5cNN4uij2AfXPxDmPs/bPPX1Y6mXj2Yq1vj2ff7n5Mmy+qxt47+3JxXKU3n86wx7JXDb34PJTBHsVeG85gD+jbq+5lo7XHjmSyagX2mLd6GIR9uVg3p0zYA2apx2cDo960yqMw7NixY8eOHTt27NixY8eOHTv2EbJbMoZ9dJ3Mf5cDy/3Bjh079qHYU72lPnqwp8ie6nQJu2DHLtixC3bs2LFjx44dO3bBjl2wYxfs2LFjx44dO3bsgh27YE+Zfbs7/btj0nuFPW1rT3uvsGdlP2/Uhj2WfZP2jtZPyr5czNxS49lre55iD2JvNHbsMeyNxo49hL3Z2LGHsDcbO/YI9ovGjj2CPWs2duxhDwewY8eOHTt2wY5dsGPHjh07duzYsWPHjl2wYxfs2LFjx44dO3bs2LFjly9h95II7KPrZGTo9y4JduzSNn8Boydaz4jTDlMAAAAASUVORK5CYII=' alt=''
+        p: label <input id='REditorW' type='text' value='388'>1
+        p: label <input id='RMultiW' type='text' value='283'>2
+        p: label <input id='RMoveW' type='text' value='100'>3
+        p: label <input id='RNumberW' type='text' value='226'>4
+        p: label <input id='RMoveH' type='text' value='136'>5
+        p: label <input id='RTaskH' type='text' value='148'>6
+        p: label <input id='RTemplateH' type='text' value='240'>7
+        h3 タイトルバー
+        p: label <input id='TitleFontS' type='text' value='12'>フォントのサイズ
+        p: label <input id='TitleH' type='text' value='28'>高さ
+        h3 ツールバー
+        p: label <input id='ToolW' type='text' value='36'>サイズ
+        h3 アプリの一覧
+        p: label <input id='TaskPaddingX' type='text' value='16'>コンテナの水平パディング
+        p: label <input id='TaskPaddingY' type='text' value='8'>コンテナの垂直パディング
+        p: label <input id='TaskMarginX' type='text' value='0'>アイコンの水平マージン
+        p: label <input id='TaskMarginY' type='text' value='8'>アイコンの垂直マージン
+        p: label <input id='TaskRows' type='text' value='7'>列数の最大
+        p: label <input id='TaskW' type='text' value='48'>アイコンのサイズ
+        h3 レイアウトエディタ
+        p: label <input id='EditorBorderW' type='text' value='8'>ボーダーのサイズ
+        p: label <input id='EditorMinW' type='text' value='32'>ドラッグできるサイズの最小
+        h3 レイアウトテンプレート
+        p: label <input id='TemplatePaddingX' type='text' value='16'>コンテナの水平パディング
+        p: label <input id='TemplatePaddingY' type='text' value='24'>コンテナの垂直パディング
+        p: label <input id='TemplateMarginX' type='text' value='12'>テンプレートの水平マージン
+        p: label <input id='TemplateMarginY' type='text' value='24'>テンプレートの垂直マージン
+        p: label <input id='TemplateRows' type='text' value='7'>列数の最大
+        p: label <input id='TemplateArea' type='text' value='8042'>テンプレートの面積
+        h3 数値指定
+        p: label <input id='NumberFontS' type='text' value='14'>フォントのサイズ
+        p: label <input id='NumberLineH' type='text' value='28'>一行の高さ
+        h3 Hit a Hint
+        p: label <input id='HahFontS' type='text' value='16'>フォントのサイズ
+        h3 色
+        p: label <input id='BackC' type='color' value='#f2f2f2'>背景
+        p: label <input id='BorderC' type='color' value='#204060'>ボーダー
+        p: label <input id='BorderLightC' type='color' value='#bfbfbf'>薄いボーダー
+        p: label <input id='ForeC' type='color' value='#000000'>文字
+        p: label <input id='ForeLightC' type='color' value='#808080'>薄い文字
+        p: label <input id='HahC' type='color' value='#80fe01'>ヒントの背景
+        p: label <input id='HoverBorderC' type='color' value='#febf01'>マウスホバー要素の背景
+        p: label <input id='HoverC' type='color' value='#f8e6b0'>マウスホバー要素のボーダー
+        p: label <input id='PreviewC' type='color' value='#9fbfbf'>ウィンドウを移動・サイズ変更するときの予測
+        p: label <input id='SelectedC' type='color' value='#c5e0fb'>フォーカス要素の背景
+        p: label <input id='TitleC' type='color' value='#b3cce6'>タイトルバー
+        h2 Hit a Hint
+        h3 全般
+        p: label <input id='IsSplitHah' type='checkbox'>ヒントの頭文字を分離
+        p: label <input id='IsSplitHahTemplate' type='checkbox'>レイアウトテンプレートのヒントを分離
+        p: label <input id='AutoHah' type='checkbox' checked>ウィンドウを移動・サイズ変更したときフォーカスアイコンを変更
+        h3 ヒントの表示
+        p: label <input id='VHTask' type='checkbox' checked>アプリの一覧
+        p: label <input id='VHTemplate' type='checkbox' checked>レイアウトテンプレート
+        p: label <input id='VHMove' type='checkbox' checked>簡易移動
+        p: label <input id='VHNumber' type='checkbox' checked>数値指定
+        p: label <input id='VHMulti' type='checkbox' checked>マルチモニター
+    footer
+        button#restore type='button' 規定値に戻す
+        button 適用
+        button#close type='button' 閉じる
+/! smoosh
+script src='scripts/option.js'
+/! endsmoosh

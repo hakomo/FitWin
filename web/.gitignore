@@ -1,0 +1,7 @@
+
+build
+node_modules
+*.html
+*.css
+*.js
+!*.min.js

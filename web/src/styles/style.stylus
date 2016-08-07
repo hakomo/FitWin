@@ -1,0 +1,328 @@
+
+TitleFontS          = 12px
+TitleH              = 28px
+
+ToolW               = 36px
+
+EditorBorderW       = 8px
+
+TaskMarginX         = 0
+TaskMarginY         = 8px
+TaskPaddingY        = 8px
+TaskW               = 48px
+
+NumberFontS         = 14px
+NumberLineH         = 28px
+
+TemplateMarginX     = 12px
+TemplateMarginY     = 24px
+TemplatePaddingY    = 24px
+
+HahFontS            = 16px
+
+BackC               = hsl(  0,  0%, 95%)
+BorderC             = hsl(210, 50%, 25%)
+BorderLightC        = hsl(  0,  0%, 75%)
+ForeC               = hsl(  0,  0%,  0%)
+ForeLightC          = hsl(  0,  0%, 50%)
+HahC                = hsl( 90, 99%, 75%)
+HoverBorderC        = hsl( 45, 99%, 50%)
+HoverC              = hsl( 45, 83%, 83%)
+SelectedC           = hsl(210, 88%, 88%)
+TitleC              = hsl(210, 50%, 80%)
+
+html, body, .c-root
+    height 100%
+
+body
+    -ms-user-select none
+    /*! BorderC */
+    background-color BorderC
+    /*! ForeC */
+    color ForeC
+    cursor default
+    font-family Meiryo
+    margin 0
+    overflow hidden
+    user-select none
+
+.c-node
+    display flex
+    flex 1 0
+
+    &:nth-child(n+2)
+        margin-left 2px
+
+.column
+    flex-direction column
+
+    > .c-node:nth-child(n+2)
+        margin 2px 0 0 0
+
+    > .side
+        margin 0 2px
+
+menu, article
+    /*! BackC */
+    background-color BackC
+    flex-direction column
+
+.container, .node
+    flex 1 0
+
+.node:not(.leaf)
+    display flex
+
+.border
+    /*! BorderC */
+    background-color BorderC
+    flex 0 2px
+
+.fixed-ratio
+    display flex
+    justify-content center
+
+.side
+    /*! BorderLightC */
+    background-color BorderLightC
+    flex 0 2px
+    margin 2px 0
+
+.scroll
+    overflow-y scroll
+
+.float:after
+    clear both
+    content ''
+    display block
+
+header, .element, .leaf
+    position relative
+
+kbd
+    /*! HahC */
+    background-color HahC
+    /*! ForeC */
+    color ForeC
+    /*! HahFontSpx Consolas */
+    font: HahFontS Consolas
+    letter-spacing 2px
+    padding 0 2px 0 4px
+    pointer-events none
+    position absolute
+    z-index 1
+
+.template kbd
+    top -2px
+    transform translate(-2px, -100%)
+
+.multi .element kbd, .template .leaf kbd
+    left 50%
+    top 50%
+    transform translate(-50%, -50%)
+
+.not-dragging .button:hover, .hover
+    /*! HoverC */
+    background-color HoverC
+    /*! ForeC */
+    color ForeC
+
+header
+    /*! TitleC */
+    background-color TitleC
+    /*! ForeLightC */
+    color ForeLightC
+    display flex
+    /*! 0 TitleHpx */
+    flex 0 TitleH
+    /*! TitleFontSpx */
+    font-size TitleFontS
+    /*! TitleHpx */
+    line-height TitleH
+
+    .button
+        /*! 0 calc(TitleHpx / 4) */
+        padding 0 (TitleH / 4)
+
+h1, h2
+    flex 1 0
+    font: inherit
+    margin 0
+    overflow hidden
+    /*! TitleHpx */
+    padding-left TitleH
+    /*! calc(TitleHpx / 2) */
+    padding-right: (TitleH / 2)
+    text-overflow ellipsis
+    white-space nowrap
+
+h2
+    /*! ForeC */
+    color ForeC
+
+.tool
+    /*! 0 ToolWpx */
+    flex 0 ToolW
+    margin 0
+    padding 0
+
+    .button
+        /*! ForeLightC */
+        color ForeLightC
+        /*! ToolWpx */
+        height ToolW
+
+.editor
+    .border
+        cursor ew-resize
+        /*! 0 EditorBorderWpx */
+        flex 0 EditorBorderW
+        margin 2px 0
+
+    .column > .border
+        cursor ns-resize
+        margin 0 2px
+
+    .leaf
+        font 12px / 2 Meiryo
+        overflow hidden
+        text-align center
+        white-space nowrap
+
+.dragging-e
+    cursor ew-resize
+
+.dragging-ec
+    cursor ns-resize
+
+.multi
+    .container
+        position relative
+
+    .element
+        /*! solid 2px BorderC */
+        border solid 2px BorderC
+        box-sizing border-box
+        position absolute
+
+    .selected
+        /*! SelectedC */
+        background-color SelectedC
+
+.horizontal
+    margin 0 2px
+
+.upper
+    margin-top 2px
+
+.lower
+    margin-bottom 2px
+
+.task
+    .float
+        margin 0 auto
+        /*! TaskPaddingToppx */
+        margin-top TaskPaddingY * 2 - TaskMarginY
+
+    .element
+        background no-repeat center
+        border solid 1px transparent
+        box-sizing border-box
+        float left
+        /*! TaskWpx */
+        height TaskW
+        /*! 0 calc(TaskMarginXpx / 2) */
+        margin 0 (TaskMarginX / 2)
+        /*! TaskPaddingYpx */
+        margin-bottom TaskPaddingY
+        /*! TaskMarginToppx */
+        margin-top TaskMarginY - TaskPaddingY
+        position relative
+        /*! TaskWpx */
+        width TaskW
+
+    .selected
+        /*! SelectedC */
+        background-color SelectedC
+        /*! BorderC */
+        border-color BorderC
+
+        span
+            /*! SelectedC */
+            background-color SelectedC
+
+    span
+        /*! BackC */
+        background-color BackC
+        bottom 0
+        display block
+        font 12px / 1.25 Meiryo
+        left 0
+        overflow hidden
+        position absolute
+        right 0
+        text-align center
+        white-space nowrap
+        z-index 1
+
+.not-dragging .task .element:hover, .task .dragged
+    /*! HoverC */
+    background-color HoverC
+    /*! HoverBorderC */
+    border-color HoverBorderC
+
+    span
+        /*! HoverC */
+        background-color HoverC
+
+.dragging-t, .dragging-t .number input
+    cursor alias
+
+.number
+    input
+        border none
+        /*! solid 1px BorderC */
+        border-bottom solid 1px BorderC
+        box-sizing border-box
+        /*! 0 NumberLineHpx */
+        flex 0 NumberLineH
+        /*! NumberFontSpx Meiryo */
+        font: NumberFontS Meiryo
+        /*! 0 0 0 calc(NumberLineHpx / 2) */
+        padding 0 0 0 (NumberLineH / 2)
+
+    .ui-sortable-helper
+        /*! solid 1px BorderC */
+        border solid 1px BorderC
+        border-left none
+
+.display
+    /*! NumberFontSpx */
+    font-size NumberFontS
+    /*! NumberLineHpx */
+    line-height NumberLineH
+    /*! 0 calc(NumberLineHpx / 2) */
+    padding 0 (NumberLineH / 2)
+
+.template
+    .float
+        margin 0 auto
+        /*! TemplatePaddingToppx */
+        margin-top TemplatePaddingY * 2 - TemplateMarginY
+
+    .element
+        /*! BackC */
+        background-color BackC
+        /*! solid 2px BorderC */
+        border solid 2px BorderC
+        float left
+        /*! 0 calc(TemplateMarginXpx / 2) */
+        margin 0 (TemplateMarginX / 2)
+        /*! TemplatePaddingYpx */
+        margin-bottom TemplatePaddingY
+        /*! TemplateMarginToppx */
+        margin-top TemplateMarginY - TemplatePaddingY
+
+    .root
+        height 100%
+        width 100%

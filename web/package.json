@@ -1,0 +1,17 @@
+{
+  "devDependencies": {
+    "del": "^2.2.1",
+    "gulp": "^3.9.1",
+    "gulp-coffee": "^2.3.2",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-slim": "0.3.0",
+    "gulp-smoosher": "0.0.9",
+    "gulp-stylus": "^2.5.0",
+    "gulp-uglify": "^2.0.0"
+  },
+  "private": true,
+  "scripts": {
+    "start": "gulp"
+  }
+}

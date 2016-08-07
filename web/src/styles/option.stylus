@@ -1,0 +1,79 @@
+
+html
+    height 100%
+
+body
+    -ms-user-select none
+    background-color hsl(0, 0%, 95%)
+    cursor default
+    height 100%
+    margin 0
+    user-select none
+
+form
+    display flex
+    flex-direction column
+    height 100%
+
+section
+    flex 1 0
+    overflow-y scroll
+    position relative
+
+footer
+    border-top solid 1px hsl(0, 0%, 75%)
+    flex 0 60px
+    padding-right 12px
+    text-align right
+
+h2
+    font normal 20px / 1 Meiryo
+    margin 64px 0 8px 32px
+
+    &:first-child
+        margin-top 32px
+
+h3
+    font normal 16px / 2 Meiryo
+    margin 32px 0 0 48px
+
+h2 + h3
+    margin-top 0
+
+p
+    font 14px / 2 Meiryo
+    margin 0 0 0 64px
+
+    &:last-child
+        margin-bottom 32px
+
+select
+    font 12px 'Meiryo UI'
+    margin-right 8px
+    padding 2px 0
+
+input
+    font 12px 'Meiryo UI'
+    margin-right 8px
+
+input[type='text']
+    height 18px
+    padding-left 8px
+    width 48px
+
+input[type='color']
+    height 18px
+    padding-left 8px
+    width 96px
+
+button
+    font 12px Meiryo
+    height 28px
+    margin 16px 4px
+    padding 0
+    width 96px
+
+img
+    left 256px
+    position absolute
+    transform translateY(-16px)
