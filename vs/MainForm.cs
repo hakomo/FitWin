@@ -247,7 +247,6 @@ jQuery Mouse Wheel Plugin v3.1.12
             bool b = (bool)wb.Document.InvokeScript("validHah");
 
             (new ContextMenu(new[] {
-                new MenuItem("設定を保存(&S)", (s, e) => Save(), Shortcut.CtrlS),
                 new MenuItem("元に戻す(&U)", (s, e) =>
                     wb.Document.InvokeScript("popUndo"), Shortcut.CtrlZ),
                 new MenuItem("フィルターをクリア", (s, e) => {
@@ -609,18 +608,14 @@ jQuery Mouse Wheel Plugin v3.1.12
 
         protected override void OnFormClosed(FormClosedEventArgs e) {
             base.OnFormClosed(e);
-            Save();
+            data.User = (string)wb.Document.InvokeScript("serialize");
+            Data.File = data;
 
             KillProcess(hook);
 
             preview.Dispose();
             ni.Dispose();
             wb.Dispose();
-        }
-
-        public void Save() {
-            data.User = (string)wb.Document.InvokeScript("serialize");
-            Data.File = data;
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e) {

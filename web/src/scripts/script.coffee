@@ -1,4 +1,4 @@
-
+﻿
 B = window.external
 C =
     VTool: true, VEditor: true, VMulti: true, VMove: true
@@ -185,9 +185,7 @@ initTool = ->
                 B.ShowMenu 0, 0
 
     $(document).on 'keydown', (e) ->
-        if e.ctrlKey and e.key is 's'
-            B.Save()
-        else if e.ctrlKey and e.key is 'z'
+        if e.ctrlKey and e.key is 'z'
             popUndo()
 
     return unless C.VTool
