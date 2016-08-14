@@ -1,7 +1,7 @@
 
 build
 node_modules
-*.html
-*.css
-*.js
-!*.min.js
+src/**/*.html
+src/**/*.css
+src/**/*.js
+!src/**/*.min.js
