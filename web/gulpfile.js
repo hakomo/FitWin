@@ -10,7 +10,7 @@ var gulp        = require('gulp'),
 	uglify      = require('gulp-uglify')
 
 gulp.task('slim', function () {
-	gulp.src('src/**/*.slim')
+	return gulp.src('src/**/*.slim')
 		.pipe(plumber({
 			errorHandler: notify.onError('<%= error.message %>') }))
 		.pipe(slim())
@@ -18,7 +18,7 @@ gulp.task('slim', function () {
 })
 
 gulp.task('stylus', function () {
-	gulp.src('src/**/*.stylus')
+	return gulp.src('src/**/*.stylus')
 		.pipe(plumber({
 			errorHandler: notify.onError('<%= error.message %>') }))
 		.pipe(stylus({ compress: true }))
@@ -26,7 +26,7 @@ gulp.task('stylus', function () {
 })
 
 gulp.task('coffee', function () {
-	gulp.src('src/**/*.coffee')
+	return gulp.src('src/**/*.coffee')
 		.pipe(plumber({
 			errorHandler: notify.onError('<%= error.message %>') }))
 		.pipe(coffee())
