@@ -421,13 +421,13 @@ jQuery Mouse Wheel Plugin v3.1.12
             } else {
                 var hw = new IntPtr(l);
                 var b = Win32.GetBoundsNormal(hw);
+                var c = (new Rectangle(x, y, w, h)).Contains(b.X + b.Width / 2, b.Y + b.Height / 2);
 
-                if ((new Rectangle(x, y, w, h)).Contains(b.X + b.Width / 2, b.Y + b.Height / 2) &&
-                        Win32.IsZoomed(hw) == Win32.Maximizable(hw)) {
+                if (c && Win32.IsZoomed(hw) == Win32.Maximizable(hw)) {
                     Win32.Second(hw, Handle);
                 } else {
                     PushRestore(hw);
-                    if (!(new Rectangle(x, y, w, h)).Contains(b.X + b.Width / 2, b.Y + b.Height / 2))
+                    if (!c)
                         Win32.SetLocation(hw, Handle, x, y);
                     if (Win32.Maximizable(hw))
                         Win32.Maximize(hw);
