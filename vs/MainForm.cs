@@ -115,6 +115,7 @@ namespace FitWin {
             data.User = (string)wb.Document.InvokeScript("serialize");
             back = data.Back;
             wb.DocumentText = Combine();
+            Data.File = data;
         }
 
         public void SecondTask(long l) {
@@ -249,12 +250,16 @@ jQuery Mouse Wheel Plugin v3.1.12
             (new ContextMenu(new[] {
                 new MenuItem("元に戻す(&U)", (s, e) =>
                     wb.Document.InvokeScript("popUndo"), Shortcut.CtrlZ),
+                new MenuItem("テンプレートなどを保存(&S)", (s, e) =>
+                    Save(), Shortcut.CtrlS),
+                new MenuItem("-"),
                 new MenuItem("フィルターをクリア", (s, e) => {
                     if (back.FilterClassNames.Count == 0)
                         return;
                     PushFilter();
                     back.FilterClassNames.Clear();
                     Watch();
+                    Save();
                 }),
                 new MenuItem("&Hit a Hint", (s, e) =>
                     wb.Document.InvokeScript("toggleHah"), Shortcut.CtrlF) { Checked = b },
@@ -355,6 +360,7 @@ jQuery Mouse Wheel Plugin v3.1.12
                         back.FilterClassNames.Add(n);
                     }
                     Watch();
+                    Save();
                 }) { Checked = back.FilterClassNames.Contains(Win32.GetClassName(hw)) },
             })).Show(this, new Point(x, y));
         }
@@ -381,6 +387,7 @@ jQuery Mouse Wheel Plugin v3.1.12
             undo.Add(() => {
                 back.FilterClassNames = ns;
                 Watch();
+                Save();
             });
             if (undo.Count > 50)
                 undo.RemoveAt(0);
@@ -608,14 +615,16 @@ jQuery Mouse Wheel Plugin v3.1.12
 
         protected override void OnFormClosed(FormClosedEventArgs e) {
             base.OnFormClosed(e);
-            data.User = (string)wb.Document.InvokeScript("serialize");
-            Data.File = data;
-
             KillProcess(hook);
 
             preview.Dispose();
             ni.Dispose();
             wb.Dispose();
+        }
+
+        public void Save() {
+            data.User = (string)wb.Document.InvokeScript("serialize");
+            Data.File = data;
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e) {

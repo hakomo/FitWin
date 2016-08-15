@@ -187,6 +187,8 @@ initTool = ->
     $(document).on 'keydown', (e) ->
         if e.ctrlKey and e.key is 'z'
             popUndo()
+        else if e.ctrlKey and e.key is 's'
+            B.Save()
 
     return unless C.VTool
 
@@ -195,6 +197,7 @@ initTool = ->
         B.ShowMenu o.left + $t.width() / 2, o.top + $t.height() / 2
 
     $('.tool .undo').on 'click', popUndo
+    $('.tool .save').on 'click', -> B.Save()
 
 # -----------------------------------------------------------------------------
 # editor
@@ -928,6 +931,7 @@ window.validHah = -> C.ValidKey
 window.toggleHah = ->
     C.ValidKey = not C.ValidKey
     update 'hah'
+    B.Save()
 
 keyHah = ->
     $(document).on 'keydown', (e) ->
